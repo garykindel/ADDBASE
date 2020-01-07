@@ -1,0 +1,41 @@
+﻿<Window x:Class="ADDBASE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADDBASE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel Background="{StaticResource BackgroundColor}">
+        <StatusBar DockPanel.Dock="Bottom" Background="{StaticResource BackgroundColor}">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock Style="{StaticResource StatusText}" Text="{StaticResource AppNameVer}"/>
+            </StatusBarItem>
+        </StatusBar>
+        <StackPanel DockPanel.Dock="Top">
+            <Label Content="Nav"/>
+        </StackPanel>
+        <StackPanel  DockPanel.Dock="Left">
+            <Label Content="Menu"/>
+            <ContentControl Name="MenuArea"/>
+        </StackPanel>
+        <StackPanel>
+            <ContentControl Name="ContentArea"/>
+        </StackPanel>
+    </DockPanel>
+</Window>
