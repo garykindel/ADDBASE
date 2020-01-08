@@ -1,0 +1,6 @@
+﻿Notes:
+
+Useful Resources:
+https://wpf.2000things.com/index/
+http://wpftutorial.net/
+https://www.wpf-tutorial.com/
