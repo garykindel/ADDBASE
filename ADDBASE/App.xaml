@@ -8,7 +8,8 @@
         <ResourceDictionary>
             <sys:String x:Key="AppNameVer"> AD&amp;DBase 1.0</sys:String>
             <SolidColorBrush x:Key="BackgroundColor" Color="#2163AD" />
-            <SolidColorBrush x:Key="HighlightColor" Color="#84FFFF" />
+            <!--#84FFFF-->
+            <SolidColorBrush x:Key="HighlightColor" Color="Blue" />
             <SolidColorBrush x:Key="LabelColor" Color="#84FFFF" />
             <SolidColorBrush x:Key="StatusColor" Color="Yellow" />
             <SolidColorBrush x:Key="DataFieldColor" Color="#C8DCFF" />
@@ -25,6 +26,31 @@
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="TextElement.FontSize" Value="16" />
+            </Style>
+
+            <Style  x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Foreground" Value="{StaticResource LabelColor}" />
+                <Setter Property="MinWidth" Value="40" />
+                <Setter Property="MinHeight" Value="40" />
+                <Setter Property="Margin" Value="0 0 5 5" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <!-- Content handles within a border -->
+                            <Border x:Name="bdr" Margin="3" BorderThickness="1" BorderBrush="Transparent" Background="Transparent">
+                                <!-- ContentPresenter properties. Set the content source as the content from each control define below -->
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content" TextBlock.FontSize="20" />
+                            </Border>
+                            <!-- Required triggers define here -->
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="bdr" Property="Background" Value="{StaticResource HighlightColor}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
         </ResourceDictionary>

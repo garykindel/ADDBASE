@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADDBASE"
+        xmlns:vm="clr-namespace:ADDBASE.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <DockPanel Background="{StaticResource BackgroundColor}">
         <StatusBar DockPanel.Dock="Bottom" Background="{StaticResource BackgroundColor}">
             <StatusBar.ItemsPanel>
@@ -28,14 +32,25 @@
             </StatusBarItem>
         </StatusBar>
         <StackPanel DockPanel.Dock="Top">
-            <Label Content="Nav"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding ListCommand}"
+                        CommandParameter="Armor"
+                        Content="Armor"
+                        Style="{StaticResource ButtonStyle}" >
+                </Button>
+                <Button Command="{Binding ListCommand}"
+                        CommandParameter="Weapons"
+                        Content="Weapons"
+                        Style="{StaticResource ButtonStyle}" >
+                </Button>
+            </StackPanel>
         </StackPanel>
         <StackPanel  DockPanel.Dock="Left">
             <Label Content="Menu"/>
             <ContentControl Name="MenuArea"/>
         </StackPanel>
         <StackPanel>
-            <ContentControl Name="ContentArea"/>
+            <ContentControl Name="ContentArea"  Content="{Binding CurrentView}"/>
         </StackPanel>
     </DockPanel>
 </Window>

@@ -10,13 +10,9 @@ namespace ADDBASE
     //Step 1 - Add-Migration InitialCreate
     //Step 2 - update-database
     
-
-
-
     public class AddContext : DbContext
     {
-        public DbSet<Weapon> Weapons { get; set; }
-       
+        public DbSet<Weapon> Weapons { get; set; }       
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=addbase.db");
